@@ -50,7 +50,7 @@ export class TutorialDetailsComponent implements OnInit {
         response => {
           this.currentTutorial.published = status;
           console.log(response);
-          this.message = response.message;
+          this.message = (response as any).message;
         },
         error => {
           console.log(error);
@@ -62,7 +62,7 @@ export class TutorialDetailsComponent implements OnInit {
       .subscribe(
         response => {
           console.log(response);
-          this.message = response.message;
+          this.message = (response as any).message;
         },
         error => {
           console.log(error);

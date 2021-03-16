@@ -4,10 +4,10 @@ import { TutorialService } from 'src/app/services/tutorial.service';
 
 @Component({
   selector: 'app-tutorials-list',
-  templateUrl: './tutorials-list.component.html',
-  styleUrls: ['./tutorials-list.component.css']
+  templateUrl: './tutorial-list.component.html',
+  styleUrls: ['./tutorial-list.component.css']
 })
-export class TutorialsListComponent implements OnInit {
+export class TutorialListComponent implements OnInit {
   tutorials?: Tutorial[];
   currentTutorial?: Tutorial;
   currentIndex = -1;
@@ -23,7 +23,7 @@ export class TutorialsListComponent implements OnInit {
     this.tutorialService.getAll()
       .subscribe(
         data => {
-          this.tutorials = data;
+          this.tutorials = data as Tutorial[];
           console.log(data);
         },
         error => {
@@ -58,7 +58,7 @@ export class TutorialsListComponent implements OnInit {
     this.tutorialService.findByTitle(this.title)
       .subscribe(
         data => {
-          this.tutorials = data;
+          this.tutorials = data as Tutorial[];
           console.log(data);
         },
         error => {
